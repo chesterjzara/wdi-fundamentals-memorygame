@@ -1,12 +1,30 @@
 console.log("Up and running!");
 
-var cards = ["queen", "queen", "king", "king"];
-var cardsInPlay = [];
+//var cards = ["queen", "queen", "king", "king"];
+var cards = [
+    {
+        rank: 'queen',
+        suit: 'hearts',
+        cardImage: "images/queen-of-hearts.png"
+    },
+    {
+        rank: 'queen',
+        suit: 'diamonds',
+        cardImage: "images/queen-of-diamonds.png"
+    },
+    {
+        rank: 'king',
+        suit: 'hearts',
+        cardImage: "images/king-of-hearts.png"
+    },
+    {
+        rank: 'king',
+        suit: 'diamonds',
+        cardImage: "images/king-of-diamonds.png"
+    }
+]
 
-/* var cardOne = cards[0];
-var cardTwo = cards[1];
-var cardThree = "king";
-var cardFour = "king"; */
+var cardsInPlay = [];
 
 var checkForMatch = function() {
     if (cardsInPlay[0] === cardsInPlay[1]) {
@@ -18,8 +36,10 @@ var checkForMatch = function() {
 }
 
 var flipCard = function (cardId) {
-    console.log("User flipped "+cards[cardId]);
-    cardsInPlay.push(cards[cardId]);
+    console.log("User flipped "+ cards[cardId].rank);
+    console.log("It was a "+ cards[cardId].suit);
+    console.log("Img in "+ cards[cardId].cardImage);
+    cardsInPlay.push(cards[cardId].rank);
     if(cardsInPlay.length === 2) {
         checkForMatch();
     }
@@ -28,4 +48,8 @@ var flipCard = function (cardId) {
 
 
 flipCard(0);
-flipCard(1);
+flipCard(2);
+
+//git add -A (or check status and specify files)
+//git commit -m 'Added object array'
+//git push origin master
